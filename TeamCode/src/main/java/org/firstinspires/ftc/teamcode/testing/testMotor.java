@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.clubRush;
+package org.firstinspires.ftc.teamcode.testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Test motor", group="Linear Opmode")
-@Disabled
+@Autonomous(name="Test motor auton", group="Linear Opmode")
+
 public class testMotor extends LinearOpMode {
 
     // Declare OpMode members.

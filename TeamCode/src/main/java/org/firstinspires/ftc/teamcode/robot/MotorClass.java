@@ -78,6 +78,8 @@ public class MotorClass {
 
         motor.setPower(speed * maxSpeed);
 
+        printData();
+
     }
 
 

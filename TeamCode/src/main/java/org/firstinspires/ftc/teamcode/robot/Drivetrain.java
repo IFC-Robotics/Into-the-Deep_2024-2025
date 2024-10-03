@@ -40,8 +40,8 @@ public class Drivetrain {
         motorBackLeft   = opMode.hardwareMap.get(DcMotor.class, "motor_back_left");
 
         if (this.forwardDirection == "collector") {
-            motorBackRight.setDirection(DcMotor.Direction.REVERSE);
             motorFrontRight.setDirection(DcMotor.Direction.REVERSE);
+            motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
         }
 
         motorFrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -234,6 +234,12 @@ public class Drivetrain {
         motorBackRight.setPower(backRightPower);
         motorBackLeft.setPower(backLeftPower);
 
+        telemetry.addData("motorFrontRight power", motorFrontRight.getPower());
+        telemetry.addData("motorFrontLeft power", motorFrontLeft.getPower());
+        telemetry.addData("motorBackRight power", motorBackRight.getPower());
+        telemetry.addData("motorBackLeft power", motorBackLeft.getPower());
+
+        telemetry.update();
     }
 
     // helper methods

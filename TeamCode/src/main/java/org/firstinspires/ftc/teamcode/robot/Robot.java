@@ -10,12 +10,13 @@ public class Robot {
     //
     public static Drivetrain drivetrain;
     //
-    public static LiftClass verticalLift;
-    public static ServoClass servoDeposit;
-    public static ServoClass servoLauncher;
-    public static MotorClass motorCollector;
-    public static MotorClass motorLauncher;
-    public static MotorClass motorPulley;
+//    public static LiftClass verticalLift;
+    public static ServoClass servoArm;
+    public static ServoClass servoCollector;
+
+    public static MotorClass motorArm;
+    public static MotorClass motorHanger;
+//    public static MotorClass motorPulley;
 
 
 
@@ -39,23 +40,24 @@ public class Robot {
         telemetry.update();
 
 
-        drivetrain     = new Drivetrain("ramp", SLEEP_TIME);
+        drivetrain     = new Drivetrain("collector", SLEEP_TIME);
         drivetrain.init(opMode);
 
         if (onlyDrive == false) {
-            verticalLift =      new LiftClass("motor_vertical_lift", MAX_LIFT_SPEED, 0.0005, SLEEP_TIME, true);
-            servoDeposit =      new ServoClass("servo_deposit", "collect", 0.2, "score",0.5,"auton", 0.8, 0.05, SERVO_TIME, false);
-            servoLauncher =     new ServoClass("servo_launcher", "release", 0, "hold",0.6 ,"medium",0.32, SERVO_SPEED, SERVO_TIME, false);
-            motorCollector =      new MotorClass("motor_collector", MAX_MOTOR_SPEED, SLEEP_TIME, true);
-            motorLauncher =     new MotorClass("motor_launcher", 0.5*MAX_MOTOR_SPEED, SLEEP_TIME, false);
-            motorPulley =       new MotorClass("motor_pulley", MAX_MOTOR_SPEED,SLEEP_TIME, false);
+//            verticalLift =      new LiftClass("motor_vertical_lift", MAX_LIFT_SPEED, 0.0005, SLEEP_TIME, true);
+//            servoLR  =     new ServoClass("servo_left_right", "left", 0.2, "middle",0.5,"right", 0.8, SERVO_SPEED, SERVO_TIME, false);
+            servoArm       = new ServoClass("servo_arm", "high", 0, "middle",0.5 ,"low",0.8, SERVO_SPEED, SERVO_TIME, false);
+            servoCollector = new ServoClass("servo_collector", "high", 0, "middle",0.5 ,"low",0.8, SERVO_SPEED, SERVO_TIME, false);
+            motorArm       = new MotorClass("motor_arm", 0.5*MAX_MOTOR_SPEED, SLEEP_TIME, true);
+            motorHanger    = new MotorClass("motor_hanger", MAX_MOTOR_SPEED, SLEEP_TIME, false);
+//            motorPulley =       new MotorClass("motor_pulley", MAX_MOTOR_SPEED,SLEEP_TIME, false);
 
-            verticalLift.init(opMode);
-            servoDeposit.init(opMode);
-            servoLauncher.init(opMode);
-            motorCollector.init(opMode);
-            motorLauncher.init(opMode);
-            motorPulley.init(opMode);
+//            verticalLift.init(opMode);
+            servoArm.init(opMode);
+            servoCollector.init(opMode);
+            motorArm.init(opMode);
+            motorHanger.init(opMode);
+//            motorPulley.init(opMode);
         }
 
 
