@@ -34,6 +34,7 @@ public class meet0TeleOp extends LinearOpMode {
 
             Robot.servoCollector.teleOpManualMode(gamepad2.left_bumper,gamepad2.right_bumper);
 
+            Robot.motorHanger.teleOp(gamepad2.right_stick_y, 0);
             if (gamepad2.y) {
                 height = hangHeight;
             }
