@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.robot;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 //robot uses the different classes in this code so if you need specifics look at the class
@@ -48,8 +49,9 @@ public class Robot {
 //            servoLR  =     new ServoClass("servo_left_right", "left", 0.2, "middle",0.5,"right", 0.8, SERVO_SPEED, SERVO_TIME, false);
 //            servoArm       = new ServoClass("servo_arm", "high", 0, "middle",0.5 ,"low",0.8, SERVO_SPEED, SERVO_TIME, false);
             servoCollector = new ServoClass("servo_collector", "high", 0, "middle",0.5 ,"low",0.8, SERVO_SPEED, SERVO_TIME, false);
-            motorArm       = new MotorClass("motor_arm", 0.5*MAX_MOTOR_SPEED, SLEEP_TIME, true);
-            motorHanger    = new MotorClass("motor_hanger", MAX_MOTOR_SPEED, SLEEP_TIME, false);
+            motorArm       = new MotorClass("motor_arm", 0.01, SLEEP_TIME, true);
+            motorArm.motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            motorHanger    = new MotorClass("motor_hanger", MAX_MOTOR_SPEED, SLEEP_TIME, true);
 //            motorPulley =       new MotorClass("motor_pulley", MAX_MOTOR_SPEED,SLEEP_TIME, false);
 
 //            verticalLift.init(opMode);
