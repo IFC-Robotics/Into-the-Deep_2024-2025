@@ -112,9 +112,12 @@ public class ServoClass {
         telemetry.addData("max button: ", maxConditionButton);
 
         if (minConditionButton || maxConditionButton) {
-            if (minConditionButton) servoPosition -= this.speed;
-            if (maxConditionButton) servoPosition += this.speed;
+            if (minConditionButton) servoPosition = 0.35;
+            if (maxConditionButton) servoPosition = 0.9;
             servo.setPosition(servoPosition);
+        }
+        else {
+            servo.setPosition(0.601);
         }
         printData();
     }
