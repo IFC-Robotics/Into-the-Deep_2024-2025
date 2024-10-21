@@ -13,14 +13,14 @@ public class testMotor extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private DcMotor armMotor;
+    private DcMotor Motor;
 
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         // Initialize the hardware variables
-        armMotor  = hardwareMap.get(DcMotor.class, "arm_motor");
+        Motor  = hardwareMap.get(DcMotor.class, "motor");
 
         // Wait for the turn to start (driver presses PLAY)
         waitForStart();
@@ -28,7 +28,7 @@ public class testMotor extends LinearOpMode {
 
         // run for 1 seconds
         while (true) {
-            armMotor.setPower(0.2);
+            Motor.setPower(1);
         }
     }
 }
