@@ -30,17 +30,17 @@ public class meet0TeleOp extends LinearOpMode {
         while (opModeIsActive()) {
             Robot.drivetrain.teleOp(-gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, gamepad1.right_bumper);
 
-            Robot.motorArm.teleOp(gamepad2.left_stick_y, 0);
+//            Robot.servoCollector.teleOpManualMode(gamepad2.left_bumper,gamepad2.right_bumper);
 
-            Robot.servoCollector.teleOpManualMode(gamepad2.left_bumper,gamepad2.right_bumper);
+            Robot.motorHanger.teleOp(gamepad1.right_trigger, -gamepad1.left_trigger);
 
-            if (gamepad2.y) {
-                height = hangHeight;
-            }
-            if (gamepad2.a) {
-                height = floorHeight;
-            }
-            Robot.motorHanger.runToPosition(height);
+//            if (gamepad1.y) {
+//                height = hangHeight;
+//            }
+//            if (gamepad1.a) {
+//                height = floorHeight;
+//            }
+//            Robot.motorHanger.runToPosition(height);
         }
     }
 

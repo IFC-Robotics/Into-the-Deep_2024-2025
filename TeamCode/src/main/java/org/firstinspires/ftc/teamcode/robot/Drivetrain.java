@@ -271,8 +271,8 @@ public class Drivetrain {
 
     public static int inchesToTicks(double inches) {
 
-        double TICKS_PER_REV = 1120; // 28, 560, 1120
-        double WHEEL_RADIUS = 2; // measure
+        double TICKS_PER_REV = 560; // 28, 560, 1120
+        double WHEEL_RADIUS = 1.88976; // measure
         double GEAR_RATIO = 20; // 1, 20, 40
 
         double wheelCircumference = 2 * Math.PI * WHEEL_RADIUS;
