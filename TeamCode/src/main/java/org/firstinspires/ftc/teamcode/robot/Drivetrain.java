@@ -71,7 +71,7 @@ public class Drivetrain {
 
         telemetry.addLine(String.format("\ndriving %s inches", distance));
 
-        int target = (int)(distance * DRIVE_FACTOR);
+        int target = (int)(inchesToTicks(distance));
         double power = Math.signum(distance) * speed;
 
         moveDrivetrain(target, target, target, target, power, power, power, power, isSynchronous);
@@ -276,7 +276,7 @@ public class Drivetrain {
         double GEAR_RATIO = 20; // 1, 20, 40
 
         double wheelCircumference = 2 * Math.PI * WHEEL_RADIUS;
-        double ticksPerInch = TICKS_PER_REV / (wheelCircumference * GEAR_RATIO);
+        double ticksPerInch = TICKS_PER_REV / (wheelCircumference);
 
         return (int)(inches * ticksPerInch);
 
