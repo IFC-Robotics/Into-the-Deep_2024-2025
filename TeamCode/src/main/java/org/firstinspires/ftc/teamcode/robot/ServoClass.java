@@ -48,16 +48,18 @@ public class ServoClass {
         telemetry = opMode.telemetry;
 
         servo = opMode.hardwareMap.get(Servo.class, this.name);
-        servo.scaleRange(this.minPosition, this.maxPosition);
 
-        // reset launching servo at initialization
-        if (this.name == "servo_launcher") {
-            servo.setPosition(this.maxPosition);
-        }
-        if (this.name == "servo_deposit") {
-            servo.setPosition(this.minPosition);
+        if (this.name == "servo_collector") {
+            servo.scaleRange(this.minPosition, this.maxPosition);
         }
 
+        // reset arms servos
+        if (this.name == "servo_arm_right") {
+            servo.setPosition(0.35);
+        }
+        if (this.name == "servo_arm_left") {
+            servo.setPosition(0);
+        }
         servoPosition = servo.getPosition();
 
         if (this.reverseDirection) servo.setDirection(Servo.Direction.REVERSE);

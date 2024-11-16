@@ -3,30 +3,37 @@ package org.firstinspires.ftc.teamcode.testing;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Test motor auton", group="Linear Opmode")
+@Autonomous(name="Test servo auton", group="Linear Opmode")
 
-public class testMotor extends LinearOpMode {
+public class testServo extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private DcMotor Motor;
+    private Servo ServoL;
+    private Servo ServoR;
 
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         // Initialize the hardware variables
-        Motor  = hardwareMap.get(DcMotor.class, "motor");
+        ServoL  = hardwareMap.get(Servo.class, "servo_arm_left");
+        ServoR  = hardwareMap.get(Servo.class, "servo_arm_right");
+        ServoL.setPosition(0.0);
+        ServoR.setPosition(0.35);
 
         // Wait for the turn to start (driver presses PLAY)
         waitForStart();
-        runtime.reset();
 
-        // run for 1 seconds
-        Motor.setPower(1);
+        // run to a position
+        while (opModeIsActive()) {
+            ServoL.setPosition(0.35);
+            ServoR.setPosition(0.05);
+        }
+
     }
 }
