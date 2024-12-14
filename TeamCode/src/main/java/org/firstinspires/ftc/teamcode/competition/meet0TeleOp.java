@@ -32,12 +32,18 @@ public class meet0TeleOp extends LinearOpMode {
         while (opModeIsActive()) {
             Robot.drivetrain.teleOp(-gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, gamepad1.right_bumper);
 
-            Robot.servoCollector.teleOpManualMode(gamepad1.left_bumper, gamepad1.right_bumper);
+           // Robot.servoCollector.teleOpManualMode(gamepad1.left_bumper, gamepad1.right_bumper);
 //            Robot.servoCollector.teleOpAssistMode(gamepad1.left_bumper, false, gamepad1.right_bumper);
-            Robot.verticalLift.teleOp(-gamepad2.right_stick_y, gamepad2.left_bumper, gamepad1.dpad_down, gamepad1.dpad_up, gamepad2.b, gamepad2.y);
-            Robot.verticalLift.printData();
+            Robot.servoCollector.teleOpAssistMode(gamepad1.x, gamepad1.right_bumper, gamepad1.left_bumper);
+            Robot.servoCollector.printData();
+            Robot.verticalLiftL.teleOp(-gamepad2.right_stick_y, gamepad2.left_bumper, gamepad1.dpad_down, gamepad1.dpad_up, gamepad2.b, gamepad2.y);
+            Robot.verticalLiftR.teleOp(-gamepad2.right_stick_y, gamepad2.left_bumper, gamepad1.dpad_down, gamepad1.dpad_up, gamepad2.b, gamepad2.y);
+            Robot.verticalLiftL.printData();
+            Robot.verticalLiftR.printData();
             Robot.servoArmL.teleOpAssistMode(gamepad1.left_trigger > 0.2, false, gamepad1.right_trigger > 0.2);
+            Robot.servoArmL.printData();
             Robot.servoArmR.teleOpAssistMode(gamepad1.right_trigger > 0.2, false, gamepad1.left_trigger > 0.2);
+            Robot.servoArmR.printData();
 
             Robot.motorHanger.teleOp(gamepad2.right_trigger, -gamepad2.left_trigger);
 

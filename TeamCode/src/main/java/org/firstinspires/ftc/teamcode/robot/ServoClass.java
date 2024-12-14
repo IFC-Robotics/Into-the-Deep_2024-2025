@@ -50,15 +50,17 @@ public class ServoClass {
         servo = opMode.hardwareMap.get(Servo.class, this.name);
 
         if (this.name == "servo_collector") {
-            servo.scaleRange(this.minPosition, this.maxPosition);
+//            servo.scaleRange(this.minPosition, this.maxPosition);
+            servo.setPosition(maxPosition);
         }
 
         // reset arms servos
         if (this.name == "servo_arm_right") {
-            servo.setPosition(0.35);
+            servo.setPosition(maxPosition);
+
         }
         if (this.name == "servo_arm_left") {
-            servo.setPosition(0);
+            servo.setPosition(minPosition);
         }
         servoPosition = servo.getPosition();
 

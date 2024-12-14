@@ -173,7 +173,8 @@ public class LiftClass {
                 boolean liftIsTooLow  = (liftCurrentPosition < positionToDistance("zero") && liftSpeed < -0.01);
                 boolean liftIsTooHigh = (liftCurrentPosition > positionToDistance("high") && liftSpeed > 0.01);
 
-                if (liftSpeed == 0 || (enableEncoderLimits && (liftIsTooLow || liftIsTooHigh))) {
+                //  || (enableEncoderLimits && (liftIsTooLow || liftIsTooHigh))
+                if (liftSpeed == 0) {
                     motorCurrentSpeed = this.idleSpeed;
                 } else {
                     motorCurrentSpeed = liftSpeed;

@@ -27,6 +27,8 @@ public class testMotor extends LinearOpMode {
         runtime.reset();
 
         // run for 1 seconds
-        Motor.setPower(1);
+        while (opModeIsActive()) {
+            Motor.setPower(0.5);
+        }
     }
 }
