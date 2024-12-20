@@ -23,8 +23,8 @@ public class testServo extends LinearOpMode {
         // Initialize the hardware variables
         ServoL  = hardwareMap.get(Servo.class, "servo_arm_left");
         ServoR  = hardwareMap.get(Servo.class, "servo_arm_right");
-        ServoL.setPosition(0.0);
-        ServoR.setPosition(0.35);
+        ServoL.setPosition(0.1);
+        ServoR.setPosition(0.4);
 
         // Wait for the turn to start (driver presses PLAY)
         waitForStart();

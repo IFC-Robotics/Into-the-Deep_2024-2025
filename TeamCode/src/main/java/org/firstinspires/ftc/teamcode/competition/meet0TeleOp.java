@@ -34,8 +34,10 @@ public class meet0TeleOp extends LinearOpMode {
 
            // Robot.servoCollector.teleOpManualMode(gamepad1.left_bumper, gamepad1.right_bumper);
 //            Robot.servoCollector.teleOpAssistMode(gamepad1.left_bumper, false, gamepad1.right_bumper);
-            Robot.servoCollector.teleOpAssistMode(gamepad1.x, gamepad1.right_bumper, gamepad1.left_bumper);
-            Robot.servoCollector.printData();
+            Robot.servoClawL.teleOpAssistMode(gamepad1.left_bumper, gamepad1.right_bumper, gamepad1.x);
+            Robot.servoClawR.teleOpAssistMode(gamepad1.x, gamepad1.right_bumper, gamepad1.left_bumper);
+            Robot.servoClawL.printData();
+            Robot.servoClawR.printData();
             Robot.verticalLiftL.teleOp(-gamepad2.right_stick_y, gamepad2.left_bumper, gamepad1.dpad_down, gamepad1.dpad_up, gamepad2.b, gamepad2.y);
             Robot.verticalLiftR.teleOp(-gamepad2.right_stick_y, gamepad2.left_bumper, gamepad1.dpad_down, gamepad1.dpad_up, gamepad2.b, gamepad2.y);
             Robot.verticalLiftL.printData();

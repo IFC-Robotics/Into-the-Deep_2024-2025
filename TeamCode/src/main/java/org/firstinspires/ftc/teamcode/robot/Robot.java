@@ -14,7 +14,8 @@ public class Robot {
     public static LiftClass verticalLiftR;
     public static ServoClass servoArmL;
     public static ServoClass servoArmR;
-    public static ServoClass servoCollector;
+    public static ServoClass servoClawL;
+    public static ServoClass servoClawR;
 
     public static MotorClass motorArm;
     public static MotorClass motorHanger;
@@ -47,11 +48,12 @@ public class Robot {
 
         if (onlyDrive == false) {
             verticalLiftL =   new LiftClass("motor_vertical_lift_l", MAX_LIFT_SPEED, 0.00006, SLEEP_TIME, false);
-            verticalLiftR =   new LiftClass("motor_vertical_lift_r", MAX_LIFT_SPEED*1.07, 0.00035, SLEEP_TIME, false);
+            verticalLiftR =   new LiftClass("motor_vertical_lift_r", MAX_LIFT_SPEED*1.055, 0.00042, SLEEP_TIME, false);
 //            servoLR  =     new ServoClass("servo_left_right", "left", 0.2, "middle",0.5,"right", 0.8, SERVO_SPEED, SERVO_TIME, false);
             servoArmL =      new ServoClass("servo_arm_left", "up", 0.05, "middle",0.3 ,"down",0.38, SERVO_SPEED, SERVO_TIME, false);
             servoArmR =      new ServoClass("servo_arm_right", "down", 0.17, "middle",0.48 ,"up",0.52, SERVO_SPEED, SERVO_TIME, false);
-            servoCollector = new ServoClass("servo_collector", "open", 0, "middle",0.3 ,"closed",0.42, SERVO_SPEED, SERVO_TIME, false);
+            servoClawL = new ServoClass("servo_claw_left", "closed", 0.0, "middle",0.2 ,"open",0.35, SERVO_SPEED, SERVO_TIME, false);
+            servoClawR = new ServoClass("servo_claw_right", "open", 0.15, "middle",0.2 ,"closed",0.41, SERVO_SPEED, SERVO_TIME, false);
 //            motorArm       = new MotorClass("motor_arm", 0.5*MAX_MOTOR_SPEED, SLEEP_TIME, true);
             motorHanger =    new MotorClass("motor_hanger", MAX_MOTOR_SPEED, SLEEP_TIME, false);
 //            motorPulley =       new MotorClass("motor_pulley", MAX_MOTOR_SPEED,SLEEP_TIME, false);
@@ -61,7 +63,8 @@ public class Robot {
             servoArmL.init(opMode);
             servoArmR.init(opMode);
 
-            servoCollector.init(opMode);
+            servoClawL.init(opMode);
+            servoClawR.init(opMode);
 //            motorArm.init(opMode);
             motorHanger.init(opMode);
 //            motorPulley.init(opMode);
