@@ -203,14 +203,14 @@ public class Drivetrain {
 
     // teleOp
 
-    public void teleOp(double drive, double strafe, double turn, boolean turboModeToggle) {
+    public void teleOp(double drive, double strafe, double turn, boolean slowModeToggle) {
 
         double frontRightPower;
         double frontLeftPower;
         double backRightPower;
         double backLeftPower;
 
-        double denominator = (Math.max(Math.abs(drive) + Math.abs(strafe) + Math.abs(turn), 1))/(turboModeToggle ? 0.7 : MAX_TELEOP_SPEED);
+        double denominator = (Math.max(Math.abs(drive) + Math.abs(strafe) + Math.abs(turn), 1))/(slowModeToggle ? 0.2 : MAX_TELEOP_SPEED);
         frontLeftPower = (drive + strafe + turn) / denominator ;
         backLeftPower = (drive - strafe + turn) / denominator;
         frontRightPower = (drive - strafe - turn) / denominator;
@@ -234,6 +234,7 @@ public class Drivetrain {
         motorBackRight.setPower(backRightPower);
         motorBackLeft.setPower(backLeftPower);
 
+        telemetry.addData("fine adjustment mode", slowModeToggle);
         telemetry.addData("motorFrontRight power", motorFrontRight.getPower());
         telemetry.addData("motorFrontLeft power", motorFrontLeft.getPower());
         telemetry.addData("motorBackRight power", motorBackRight.getPower());
